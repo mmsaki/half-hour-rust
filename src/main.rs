@@ -202,4 +202,11 @@ fn main() {
     // not that the rest of the fields can mean all the fields
     let v4 = Vec2 { ..v1 };
     println!("Check out v4 sruct {:?}", v4);
+
+    // structs are like tuples, can be deconstructed,
+    // just like this is a valid 'let' patterns:
+    let (_left, _right) = slice.split_at(middle);
+    // so is this:
+    let Vec2 { x, .. } = v4;
+    println!("Deconstructe value x = {} form struct {:?}", x, v4);
 }
