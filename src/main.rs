@@ -150,4 +150,16 @@ fn main() {
     // use derivertives can be used to 'bring in scope' name from other namespace:
     use std::cmp::min;
     let _least = min(7, 1); // this is 1
+
+    // within use directives, curly brackets have another meaning: they're 'globs'. If we want both min and max,
+    // we can do any of these:
+    // this works:
+    // use std::cmp::max;
+    // use std::cmp::min;
+
+    // this also works:
+    // use std::cmp::{max, min};
+
+    // this also works!
+    // use std::{cmp::max, cmp::min};
 }
