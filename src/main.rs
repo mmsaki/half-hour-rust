@@ -141,4 +141,9 @@ fn main() {
     let nick = "fasterthanlime";
     let l = nick.len(); // this is 14
     println!("the length of nickname is {}", l);
+
+    // th double colon ::, is similar but u ut operates on namespaces
+    // in this exampl, std is a crate (~ library), cmp is a module (~ a source file), and min is a function
+    let least = std::cmp::min(3, 8); // this is 3
+    println!("Min value in (3, 8) is {}", least)
 }
