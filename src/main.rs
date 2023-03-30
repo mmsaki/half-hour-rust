@@ -167,4 +167,8 @@ fn main() {
     // this brings 'min' and 'max' in scope, and many other things
     use std::cmp::*;
     let _max = max(7, 1); // this is 7
+
+    // types are namespaces too, and methos can be called as regular functions:
+    let _x = "amos".len(); // this returns 4
+    let _x = str::len("amos"); // this returns 4
 }
