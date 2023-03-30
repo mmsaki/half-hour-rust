@@ -182,4 +182,24 @@ fn main() {
     // this works be cause rust inserts this at the begning of every module:
     use std::prelude::v1::*;
     // which in turn re-exports a lot of symbols, like 'Vec', 'String', 'Option', and 'Result'
+
+    // Structs are declared with the struct keyword
+    #[derive(Debug)]
+    struct Vec2 {
+        x: f64, // 64-bit floating point, aka 'double precision'
+        y: f64,
+    }
+    // structs can be initialized using struct literals:
+    let v1 = Vec2 { x: 1.0, y: 3.0 };
+    let v2 = Vec2 { x: 2.0, y: 4.0 };
+    // the order does not matter, only the names do
+
+    // this is a shortcut for initializing the rest of the fields from another struct
+    let v3 = Vec2 { x: 14.0, ..v2 };
+    println!("Check out v3 sruct {:?}", v3);
+
+    // this is called "struct update syntax", can only happen in last position, and cannot be followed by a comma
+    // not that the rest of the fields can mean all the fields
+    let v4 = Vec2 { ..v1 };
+    println!("Check out v4 sruct {:?}", v4);
 }
