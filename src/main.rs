@@ -171,4 +171,14 @@ fn main() {
     // types are namespaces too, and methos can be called as regular functions:
     let _x = "amos".len(); // this returns 4
     let _x = str::len("amos"); // this returns 4
+
+    // 'str' is a primitive type, but many non-primitive types are also in scope by default
+    // 'Vec' is a regular struct, not a primitive type
+    let _v: Vec<i32> = Vec::new();
+
+    // this is exactly the same code, but with the *full* path to 'Vec'
+    let _v: Vec<i32> = std::vec::Vec::new();
+
+    // this works be cause rust inserts this at the begning of every module:
+    use std::prelude::v1::*;
 }
