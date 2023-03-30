@@ -215,4 +215,36 @@ fn main() {
     // and this: which throws away 'v.y'
     let Vec2 { x, .. } = v;
     println!("Deconstructe value x = {} form struct {:?}", x, v);
+
+    // let patterns can be used as conditions in if:
+    struct Number {
+        odd: bool,
+        value: i32,
+    }
+
+    fn odd_numbers() {
+        let one = Number {
+            odd: true,
+            value: 1,
+        };
+        let two = Number {
+            odd: false,
+            value: 2,
+        };
+        print_number(one);
+        print_number(two);
+    }
+
+    fn print_number(n: Number) {
+        if let Number { odd: true, value } = n {
+            println!("Odd number: {}", value);
+        } else if let Number { odd: false, value } = n {
+            println!("Even number: {}", value);
+        }
+    }
+
+    // This prints out:
+    // Odd number: 1
+    // Even number: 2
+    odd_numbers();
 }
