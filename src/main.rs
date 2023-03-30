@@ -207,6 +207,12 @@ fn main() {
     // just like this is a valid 'let' patterns:
     let (_left, _right) = slice.split_at(middle);
     // so is this:
-    let Vec2 { x, .. } = v4;
-    println!("Deconstructe value x = {} form struct {:?}", x, v4);
+    let v = Vec2 { x: 3.0, y: 6.0 };
+    let Vec2 { x, y } = v;
+    // 'x' is now 3.0 and 'y' is now '6.0'
+    println!("x is : {} and y is: {}", x, y);
+
+    // and this: which throws away 'v.y'
+    let Vec2 { x, .. } = v;
+    println!("Deconstructe value x = {} form struct {:?}", x, v);
 }
