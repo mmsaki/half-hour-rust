@@ -181,8 +181,5 @@ fn main() {
 
     // this works be cause rust inserts this at the begning of every module:
     use std::prelude::v1::*;
-<<<<<<< HEAD
     // which in turn re-exports a lot of symbols, like 'Vec', 'String', 'Option', and 'Result'
-=======
->>>>>>> 2ea7b04778bebf3c68cb9b4a28b1631c9392aec4
 }
