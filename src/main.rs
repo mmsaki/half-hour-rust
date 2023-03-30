@@ -162,4 +162,9 @@ fn main() {
 
     // this also works!
     // use std::{cmp::max, cmp::min};
+
+    // A wild cad (*) let you import every symbol from a namespace:
+    // this brings 'min' and 'max' in scope, and many other things
+    use std::cmp::*;
+    let _max = max(7, 1); // this is 7
 }
