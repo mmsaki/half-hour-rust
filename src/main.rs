@@ -145,5 +145,9 @@ fn main() {
     // th double colon ::, is similar but u ut operates on namespaces
     // in this exampl, std is a crate (~ library), cmp is a module (~ a source file), and min is a function
     let least = std::cmp::min(3, 8); // this is 3
-    println!("Min value in (3, 8) is {}", least)
+    println!("Min value in (3, 8) is {}", least);
+
+    // use derivertives can be used to 'bring in scope' name from other namespace:
+    use std::cmp::min;
+    let _least = min(7, 1); // this is 1
 }
