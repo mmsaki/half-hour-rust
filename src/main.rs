@@ -401,4 +401,22 @@ fn main() {
         main()
     }
 
+    // An 'impl' block is always for a type, so, inside that block, 'self' means that type:
+    {
+        struct Number {
+            odd: bool,
+            value: i32,
+        }
+
+        impl std::ops::Neg for Number {
+            type Output = Self;
+
+            fn neg(self) -> Self {
+                Self {
+                    odd: self.odd,
+                    value: -self.value,
+                }
+            }
+        }
+    }
 }
