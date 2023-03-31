@@ -358,4 +358,22 @@ fn main() {
         main()
     }
 
+    // our trait on a foreign type (a primitive type, even)
+    {
+        impl Signed for i32 {
+            fn is_strictly_negative(self) -> bool {
+                self < 0
+            }
+        }
+
+        fn main() {
+            let n: i32 = -44;
+            println!(
+                "Implementing a fn to primitive i32 type {}",
+                n.is_strictly_negative()
+            ); // prints 'true'
+        }
+        main()
+    }
+
 }
