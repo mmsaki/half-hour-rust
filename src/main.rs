@@ -291,4 +291,23 @@ fn main() {
         }
     }
 
+    // you can declare methods on your own types:
+    {
+        struct Number {
+            odd: bool,
+            value: i32,
+        }
+        impl Number {
+            fn is_strictly_positive(self) -> bool {
+                self.value > 0
+            }
+        }
+        let x = Number {
+            odd: true,
+            value: -13,
+        };
+        println!("Is -13 strictly positive? {}", x.is_strictly_positive());
+        // this prints false
+    }
+
 }
