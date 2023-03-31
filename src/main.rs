@@ -1,5 +1,5 @@
 // Following tutorial at https://fasterthanli.me/articles/a-half-hour-to-learn-rust
-
+#![allow(dead_code, unused)]
 fn main() {
     // `let` intoduces a varibale binding
     let _x; // decare 'x'
