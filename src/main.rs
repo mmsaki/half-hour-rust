@@ -331,4 +331,31 @@ fn main() {
     trait Signed {
         fn is_strictly_negative(self) -> bool;
     }
+
+    // you can implemment: one of your traits on anyone's type
+    // anyone's trait on one of your types
+    // but not a foreign trait on a foreign type
+    // These are called the "orphan rules"
+
+    // Here's an implementation of our trait on our type:
+    {
+        impl Signed for Number {
+            fn is_strictly_negative(self) -> bool {
+                self.value < 0
+            }
+        }
+
+        fn main() {
+            let n = Number {
+                odd: false,
+                value: -44,
+            };
+            println!(
+                "Implementins trait to our Number type {}",
+                n.is_strictly_negative()
+            ); // prints 'true'
+        }
+        main()
+    }
+
 }
