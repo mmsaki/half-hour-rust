@@ -154,20 +154,27 @@ fn main() {
     // within use directives, curly brackets have another meaning: they're 'globs'. If we want both min and max,
     // we can do any of these:
     // this works:
-    // use std::cmp::max;
-    // use std::cmp::min;
+    {
+        use std::cmp::max;
+        use std::cmp::min;
+    }
 
     // this also works:
-    // use std::cmp::{max, min};
+    {
+        use std::cmp::{max, min};
+    }
 
     // this also works!
-    // use std::{cmp::max, cmp::min};
+    {
+        use std::{cmp::max, cmp::min};
+    }
 
     // A wild cad (*) let you import every symbol from a namespace:
     // this brings 'min' and 'max' in scope, and many other things
-    use std::cmp::*;
-    let _max = max(7, 1); // this is 7
-
+    {
+        use std::cmp::*;
+        let max = max(7, 1); // this is 7
+    }
     // types are namespaces too, and methos can be called as regular functions:
     let _x = "amos".len(); // this returns 4
     let _x = str::len("amos"); // this returns 4
