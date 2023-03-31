@@ -376,4 +376,29 @@ fn main() {
         main()
     }
 
+    // A foreign trait on our type:
+    // the 'Neg' trait is used to overload '-', the unary minus operator
+    {
+        impl std::ops::Neg for Number {
+            type Output = Number;
+
+            fn neg(self) -> Number {
+                Number {
+                    value: -self.value,
+                    odd: self.odd,
+                }
+            }
+        }
+
+        fn main() {
+            let n = Number {
+                odd: true,
+                value: 987,
+            };
+            let m = -n; // this is only posible because we implemented 'Neg'
+            println!("{}", m.value); // prints '-987'
+        }
+        main()
+    }
+
 }
