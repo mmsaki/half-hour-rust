@@ -327,4 +327,8 @@ fn main() {
         }
     }
 
+    // traits are something multiple types can have in common:
+    trait Signed {
+        fn is_strictly_negative(self) -> bool;
+    }
 }
