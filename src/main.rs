@@ -310,4 +310,21 @@ fn main() {
         // this prints false
     }
 
+    // variable bindings are immutable by default, which means their interior can't be mutated unless you use mut keywork:
+    {
+        fn main() {
+            let mut n = Number {
+                odd: true,
+                value: 17,
+            };
+            n.odd = false; // error: cannot assign to 'n.odd' if n is not declared to be mutable
+
+            // or you can also declare new n
+            n = Number {
+                odd: false,
+                value: 22,
+            };
+        }
+    }
+
 }
