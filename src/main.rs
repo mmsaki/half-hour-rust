@@ -254,4 +254,41 @@ fn main() {
     // Odd number: 1
     // Even number: 2
     odd_numbers();
+    {
+        fn print_number_1(n: Number) {
+            match n {
+                Number { odd: true, value } => println!("Odd number: {}", value),
+                Number { odd: false, value } => println!("Even number: {}", value),
+            }
+        }
+    }
+
+    // this prints the same as before
+    //  A match has to be exhaustive: at least one arm needs to match
+    {
+        fn print_number_2(n: Number) -> String {
+            match n {
+                Number { value: 1, .. } => String::from("One"),
+                Number { value: 2, .. } => String::from("Two"),
+                Number { value, .. } => String::from("Other Number"),
+                // if that last arm didn't exist, we would get a compile-time error
+            }
+        }
+    }
+    {
+        // This also prints the same
+        fn print_number_3(n: Number) {}
+    }
+
+    // If it's hard, '_' can be used as a "catch-all" pattern:
+    {
+        fn print_number(n: Number) {
+            match n.value {
+                1 => println!("One"),
+                2 => println!("Two"),
+                _ => println!("{}", n.value),
+            }
+        }
+    }
+
 }
